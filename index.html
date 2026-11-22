@@ -218,19 +218,23 @@
       <div class="record">
         <div class="record-item">
           <h3><a href="https://github.com/flet-dev/flet/pull/7101">PR #7101 · 补官方 async 文档缺失的两点</a><span class="tag merged">MERGED</span></h3>
-          <p>首帧更新要让出事件循环、后台线程异常的归属。维护者重写后合并，CHANGELOG 1.1.x 署名 @daneeller。这个 PR 还让维护者发现并修掉了一个真实的框架 bug（<a href="https://github.com/flet-dev/flet/pull/7106">#7106</a>，带 230 行测试）。</p>
+          <p>首帧更新要让出事件循环、后台线程异常的归属。维护者重写后合并，CHANGELOG 1.1.x 署名 @daneeller；它带出的一个真实框架 bug 由维护者在 <a href="https://github.com/flet-dev/flet/pull/7106">#7106</a> 修掉（230 行测试，已合并）。</p>
         </div>
         <div class="record-item">
-          <h3><a href="https://github.com/flet-dev/flet/issues/7109">Issue #7109 · 异常日志记错 logger</a><span class="tag fixed">触发修复</span></h3>
-          <p>用真实异常日志定位到 run_task() 的错误被记在 concurrent.futures 而非 flet logger，按 flet 过滤会完全漏掉。维护者在 1.x 复现后开了修复 PR <a href="https://github.com/flet-dev/flet/pull/7110">#7110</a>。</p>
+          <h3><a href="https://github.com/flet-dev/flet/issues/7109">Issue #7109 → PR #7110 · 异常日志记错 logger</a><span class="tag merged">MERGED</span></h3>
+          <p>用异常日志定位到 run_task() 的错误记在 concurrent.futures 而非 flet logger，按 flet 过滤会完全漏掉。维护者在 1.x 复现后合并修复，顺带补上 run_thread() 与 PubSub 订阅者异常不上报的缺口。</p>
         </div>
         <div class="record-item">
           <h3><a href="https://github.com/flet-dev/flet/issues/7107">Issue #7107 · Page.update() 线程安全契约缺失</a></h3>
-          <p>对照 0.86.5 和 1.x 源码逐行核实，指出线程安全契约从未被文档化，run_thread() 被普遍误读成"回 UI 线程"，实际进的是线程池。</p>
+          <p>对照 0.86.5 与 1.x 源码逐行核实：线程安全契约从未被文档化，run_thread() 被普遍误读成"回 UI 线程"，实际进的是线程池。</p>
         </div>
         <div class="record-item">
-          <h3><a href="https://github.com/flet-dev/flet/issues/7108">Issue #7108 · schedule_update 跨线程不安全</a></h3>
-          <p>1.x 调度器用 asyncio.Event.set() 跨线程调用不安全，已由社区贡献者认领修复。</p>
+          <h3><a href="https://github.com/flet-dev/flet/issues/7108">Issue #7108 → PR #7113 · schedule_update 跨线程不安全</a><span class="tag fixed">独立验证</span></h3>
+          <p>1.x 调度器跨线程调用 asyncio.Event.set() 不安全。修复由社区贡献者认领后，我在隔离环境做了独立 A/B 对照：同一份测试在未修复版一个失败、一个<strong>挂死 90 秒</strong>（硬超时才终止），应用补丁后 6/6 全绿、0.47s——证实可致事件循环挂死，另附三点边缘加固建议。</p>
+        </div>
+        <div class="record-item">
+          <h3><a href="https://github.com/flet-dev/flet/issues/7120">Issue #7120 · run_thread worker 无法取消</a></h3>
+          <p>窗口销毁后进程仍被 join 而滞留。用干净 venv 装 flet==0.86.5 做最小复现 + 无 worker 对照组：带 worker 晚约 10 秒退出、对照约 0.2 秒，并给出从共享线程池到 shutdown(wait=False, cancel_futures=True) 的源码链。</p>
         </div>
       </div>
       <div class="note">
