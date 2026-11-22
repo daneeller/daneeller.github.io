@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>陈思宇 · daneeller — 先定义问题，再选工具</title>
-  <meta name="description" content="陈思宇（daneeller），上海杉达学院计算机科学与技术卓越班在读。先定义问题，再选工具；把踩过的坑反哺给上游。" />
+  <title>Chen Siyu / daneeller — Define the problem before choosing the tool</title>
+  <meta name="description" content="Chen Siyu (daneeller), computer science student. Define the problem before choosing the tool, then verify with reproducible evidence." />
   <style>
     :root {
       --bg: #f7f8fa;
@@ -29,6 +29,7 @@
       -webkit-font-smoothing: antialiased;
     }
     .wrap { max-width: 860px; margin: 0 auto; }
+    .zh { color: var(--muted); font-size: .9em; }
 
     header.hero {
       padding: 8px 4px 36px;
@@ -43,13 +44,13 @@
       margin-bottom: 18px;
     }
     .hero h1 {
-      font-size: 34px;
+      font-size: 32px;
       line-height: 1.3;
       margin-bottom: 10px;
       letter-spacing: -.02em;
     }
     .hero .thesis {
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 600;
       color: var(--text);
       margin: 20px 0 18px;
@@ -70,6 +71,7 @@
       margin-bottom: 20px;
       padding-bottom: 12px;
       border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
     }
     .section-head h2 { font-size: 20px; letter-spacing: -.01em; }
     .section-head .sub { font-size: 13px; color: var(--muted); }
@@ -90,6 +92,7 @@
     }
     .principle h3 { font-size: 15px; margin-bottom: 8px; }
     .principle p { font-size: 14px; color: var(--muted); }
+    .principle p.zh { margin-top: 6px; font-size: 13px; }
 
     .record {
       background: var(--card);
@@ -106,6 +109,7 @@
     .record-item h3 a { color: var(--accent); text-decoration: none; }
     .record-item h3 a:hover { text-decoration: underline; }
     .record-item p { font-size: 14px; color: var(--muted); }
+    .record-item p.zh { margin-top: 6px; font-size: 13px; }
     .tag {
       display: inline-block;
       font-size: 12px;
@@ -117,17 +121,6 @@
     }
     .tag.merged { background: var(--green-soft); color: var(--green); }
     .tag.fixed { background: var(--accent-soft); color: var(--accent); }
-    .note {
-      margin-top: 16px;
-      font-size: 14px;
-      color: var(--muted);
-      background: var(--card);
-      border: 1px dashed var(--line);
-      border-radius: 10px;
-      padding: 16px 20px;
-    }
-    .note a { color: var(--accent); text-decoration: none; }
-    .note a:hover { text-decoration: underline; }
 
     .proj {
       background: var(--card);
@@ -139,11 +132,13 @@
     .proj h3 { font-size: 16px; margin-bottom: 8px; }
     .proj h3 a { color: var(--accent); text-decoration: none; }
     .proj h3 a:hover { text-decoration: underline; }
-    .proj p { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+    .proj p { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
+    .proj p.zh { font-size: 13px; margin-bottom: 8px; }
     .proj .meta { font-size: 13px; color: var(--muted); }
 
     .small-list { display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 14px; color: var(--muted); }
     .small-list strong { color: var(--text); font-weight: 600; }
+    .small-list .zh { font-size: 13px; }
 
     footer {
       text-align: center;
@@ -157,8 +152,8 @@
 
     @media (max-width: 620px) {
       .principles { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 28px; }
-      .hero .thesis { font-size: 19px; }
+      .hero h1 { font-size: 27px; }
+      .hero .thesis { font-size: 18px; }
     }
   </style>
 </head>
@@ -166,111 +161,161 @@
   <div class="wrap">
 
     <header class="hero">
-      <div class="kicker">陈思宇 · daneeller</div>
-      <h1>把学到的东西做成能真正跑起来的样子。</h1>
-      <div class="thesis">先定义问题，再选工具。</div>
+      <div class="kicker">Chen Siyu · daneeller</div>
+      <h1>Building what I learn into something that actually runs.
+        <div class="zh">把学到的东西做成能真正跑起来的样子。</div>
+      </h1>
+      <div class="thesis">Define the problem before choosing the tool.
+        <div class="zh">先定义问题，再选工具。</div>
+      </div>
       <p class="intro">
-        上海杉达学院计算机科学与技术卓越班在读。我不太习惯先给自己贴标签再说会什么，
-        更愿意先讲清楚一件事<strong>到底要解决什么、约束在哪里</strong>，然后才谈用什么工具——
-        很多时候结论和"通常怎么做"并不一样。做过的东西不算多，但尽量让每一件都能
-        <strong>复跑、验证、被别人接着做</strong>。
+        Computer science student. I prefer to state <strong>what a problem is and
+        where its constraints lie</strong> before talking about tools — the conclusion
+        often differs from the conventional answer. What I have built is modest, but
+        each piece is meant to be <strong>reproducible, verifiable, and open for
+        someone else to continue</strong>.
+      </p>
+      <p class="intro zh">
+        计算机专业在读。更愿意先讲清楚一件事到底要解决什么、约束在哪里，然后才谈工具——
+        结论常常与惯例不同。做过的东西不算多，但每一件都尽量可复跑、可验证、能被别人
+        接着做下去。
       </p>
       <div class="links">
         <a href="https://github.com/daneeller">GitHub →</a>
-        <a href="https://github.com/daneeller/daneeller">个人主页源码 →</a>
+        <a href="https://github.com/daneeller/daneeller">Profile source →</a>
       </div>
     </header>
 
     <section>
       <div class="section-head">
-        <h2>我怎么做事</h2>
-        <span class="sub">比技能清单更能说明我会交付什么</span>
+        <h2>How I Work</h2>
+        <span class="sub">我怎么做事 · four principles, stated briefly</span>
       </div>
       <div class="principles">
         <div class="principle">
           <div class="num">01</div>
-          <h3>先问约束，再谈方案</h3>
-          <p>答案取决于真正的限制条件，而不是行业惯例。把标签和惯例先放一边，回到约束重推一遍，经常能推出不一样的结论。</p>
+          <h3>Constraints before solutions</h3>
+          <p>The answer depends on real limits, not on industry habit. Setting labels
+            aside and reasoning from the constraints often leads somewhere else.</p>
+          <p class="zh">先问约束，再谈方案。答案取决于真实的限制，而非行业惯例；放下标签、
+            从约束重新推导，结论常与惯例不同。</p>
         </div>
         <div class="principle">
           <div class="num">02</div>
-          <h3>端到端自己走完</h3>
-          <p>从界面、数据、推理到打包发布，能自己走通的就不拆给别人。不是为了证明全栈，是因为穿过每一层才知道问题卡在哪一层。</p>
+          <h3>End to end, by myself</h3>
+          <p>From interface and data to inference and packaging, I go through each
+            layer myself — not to prove breadth, but because crossing every layer is
+            how you find where a problem actually sits.</p>
+          <p class="zh">端到端自己走完。从界面、数据到推理与打包，每一层都自己穿过；不是为了
+            证明覆盖面，而是只有穿过每一层，才知道问题卡在哪里。</p>
         </div>
         <div class="principle">
           <div class="num">03</div>
-          <h3>用可复跑的门禁代替"感觉差不多"</h3>
-          <p>写测试、设基线、做变异冒烟——先确认门禁真能抓到红，再信它给的绿。稳定性不靠观察几次，靠能重复触发。</p>
+          <h3>Repeatable gates over "looks fine"</h3>
+          <p>Tests, baselines, mutation smoke checks: confirm the gate turns red before
+            trusting its green. Stability comes from repeated triggering, not from a
+            few observations.</p>
+          <p class="zh">可复跑的门禁胜过"看着差不多"。测试、基线、变异冒烟——先确认门禁能
+            抓到红，再信它给的绿；稳定性来自可重复触发，而非几次观察。</p>
         </div>
         <div class="principle">
           <div class="num">04</div>
-          <h3>把踩过的坑变成公共财产</h3>
-          <p>遇到框架问题，先分清是我用法错了还是框架真有缺陷；确认是后者，就做成最小复现报上去，能修就修。</p>
+          <h3>Turn what breaks into public knowledge</h3>
+          <p>When a framework misbehaves, I first separate my misuse from a real defect.
+            If it is the latter, I reduce it to a minimal reproduction and report it
+            upstream.</p>
+          <p class="zh">把踩过的坑变成公共财产。遇到框架问题，先分清用法错误还是真实缺陷；
+            是后者就做成最小复现上报上游。</p>
         </div>
       </div>
     </section>
 
     <section>
       <div class="section-head">
-        <h2>公开记录</h2>
-        <span class="sub">都能点开核对，不是自我评价</span>
+        <h2>Public Record</h2>
+        <span class="sub">公开记录 · all entries link to the original thread</span>
       </div>
       <div class="record">
         <div class="record-item">
-          <h3><a href="https://github.com/flet-dev/flet/pull/7101">PR #7101 · 补官方 async 文档缺失的两点</a><span class="tag merged">MERGED</span></h3>
-          <p>首帧更新要让出事件循环、后台线程异常的归属。维护者重写后合并，CHANGELOG 1.1.x 署名 @daneeller；它带出的一个真实框架 bug 由维护者在 <a href="https://github.com/flet-dev/flet/pull/7106">#7106</a> 修掉（230 行测试，已合并）。</p>
+          <h3><a href="https://github.com/flet-dev/flet/pull/7101">PR #7101 · async documentation gaps</a><span class="tag merged">MERGED</span></h3>
+          <p>Two gaps in the official async docs; also led to a framework fix in
+            <a href="https://github.com/flet-dev/flet/pull/7106">#7106</a>.</p>
+          <p class="zh">补官方 async 文档两处空白，并带出 #7106 框架修复。</p>
         </div>
         <div class="record-item">
-          <h3><a href="https://github.com/flet-dev/flet/issues/7109">Issue #7109 → PR #7110 · 异常日志记错 logger</a><span class="tag merged">MERGED</span></h3>
-          <p>用异常日志定位到 run_task() 的错误记在 concurrent.futures 而非 flet logger，按 flet 过滤会完全漏掉。维护者在 1.x 复现后合并修复，顺带补上 run_thread() 与 PubSub 订阅者异常不上报的缺口。</p>
+          <h3><a href="https://github.com/flet-dev/flet/issues/7109">Issue #7109 → PR #7110 · exception logged under the wrong logger</a><span class="tag merged">MERGED</span></h3>
+          <p><code>run_task()</code> exceptions were logged under
+            <code>concurrent.futures</code> rather than <code>flet</code>, so a
+            <code>flet</code>-only filter missed them entirely.</p>
+          <p class="zh"><code>run_task()</code> 异常记在 <code>concurrent.futures</code> 而非
+            <code>flet</code> logger，按 <code>flet</code> 过滤会完全漏掉。</p>
         </div>
         <div class="record-item">
-          <h3><a href="https://github.com/flet-dev/flet/issues/7107">Issue #7107 · Page.update() 线程安全契约缺失</a></h3>
-          <p>对照 0.86.5 与 1.x 源码逐行核实：线程安全契约从未被文档化，run_thread() 被普遍误读成"回 UI 线程"，实际进的是线程池。</p>
+          <h3><a href="https://github.com/flet-dev/flet/issues/7107">Issue #7107 · undocumented thread-safety contract</a></h3>
+          <p><code>Page.update()</code> thread-safety was undocumented;
+            <code>run_thread()</code> does not return to the UI thread.</p>
+          <p class="zh"><code>Page.update()</code> 线程安全契约未文档化；<code>run_thread()</code>
+            并不回到 UI 线程。</p>
         </div>
         <div class="record-item">
-          <h3><a href="https://github.com/flet-dev/flet/issues/7108">Issue #7108 → PR #7113 · schedule_update 跨线程不安全</a><span class="tag fixed">独立验证</span></h3>
-          <p>1.x 调度器跨线程调用 asyncio.Event.set() 不安全。修复由社区贡献者认领后，我在隔离环境做了独立 A/B 对照：同一份测试在未修复版一个失败、一个<strong>挂死 90 秒</strong>（硬超时才终止），应用补丁后 6/6 全绿、0.47s——证实可致事件循环挂死，另附三点边缘加固建议。</p>
+          <h3><a href="https://github.com/flet-dev/flet/issues/7108">Issue #7108 → PR #7113 · unsafe cross-thread scheduling</a><span class="tag fixed">VERIFIED</span></h3>
+          <p>The 1.x scheduler calls <code>asyncio.Event.set()</code> across threads
+            unsafely. Independently reproduced and cross-checked against the fix.</p>
+          <p class="zh">1.x 调度器跨线程调用 <code>asyncio.Event.set()</code> 不安全。
+            独立复现并对修复结果做了对照验证。</p>
         </div>
         <div class="record-item">
-          <h3><a href="https://github.com/flet-dev/flet/issues/7120">Issue #7120 · run_thread worker 无法取消</a></h3>
-          <p>窗口销毁后进程仍被 join 而滞留。用干净 venv 装 flet==0.86.5 做最小复现 + 无 worker 对照组：带 worker 晚约 10 秒退出、对照约 0.2 秒，并给出从共享线程池到 shutdown(wait=False, cancel_futures=True) 的源码链。</p>
+          <h3><a href="https://github.com/flet-dev/flet/issues/7120">Issue #7120 · uncancellable run_thread worker</a></h3>
+          <p><code>run_thread()</code> workers could not be cancelled; the process
+            lingered after the window closed. Minimal reproduction with a clean venv
+            and a no-worker control group.</p>
+          <p class="zh"><code>run_thread()</code> worker 无法取消，关窗后进程滞留。
+            用干净 venv 的最小复现与无 worker 对照组定位。</p>
         </div>
-      </div>
-      <div class="note">
-        也有<a href="https://github.com/flet-dev/flet/issues/7102">我自己判断错了</a>的时候：把日志末尾的 Session was garbage collected 当成崩溃原因，维护者指出那只是窗口关闭的 INFO 症状。用日志证据复核后我公开承认误判、修正结论——报告的价值不在于每次都对，在于能被证据纠正。
       </div>
     </section>
 
     <section>
       <div class="section-head">
-        <h2>项目</h2>
+        <h2>Projects</h2>
+        <span class="sub">项目</span>
       </div>
       <div class="proj">
-        <h3><a href="https://github.com/daneeller/course-order">课序 · ClassOrder</a></h3>
-        <p>面向鸿蒙 PC 的学期课表工具。不只是显示课表，还查出四类排课冲突（时间冲突、跨楼赶课、重复录入、时段重叠）并给可执行的改课方案，把问题发现提前到录入的当下。</p>
-        <div class="meta">TypeScript · ArkTS · 含 LICENSE、README 与逻辑验证台</div>
+        <h3><a href="https://github.com/daneeller/course-order">ClassOrder / 课序</a></h3>
+        <p>A semester timetable tool for HarmonyOS PC. Detects four classes of
+          scheduling conflict and proposes actionable fixes.</p>
+        <p class="zh">面向鸿蒙 PC 的学期课表工具。查出四类排课冲突并给出可执行的改课方案。</p>
+        <div class="meta">TypeScript · ArkTS · LICENSE, README and a logic verification harness</div>
       </div>
       <div class="proj">
-        <h3><a href="https://github.com/daneeller/f25015220-apache-commons-cli-license-scan">Apache Commons CLI 开源许可测试报告</a></h3>
-        <p>用 ScanCode Toolkit 32.5.0 扫完 141 个受控文件，核对 Apache-2.0 与 LICENSE / NOTICE / 文件头三要素的一致性，并记录误报与检测盲区。</p>
-        <div class="meta">开源合规 · ScanCode Toolkit · SPDX License List 3.27</div>
+        <h3><a href="https://github.com/daneeller/f25015220-apache-commons-cli-license-scan">Apache Commons CLI license scan</a></h3>
+        <p>Scanned 141 controlled files with ScanCode Toolkit 32.5.0, checking
+          Apache-2.0 against LICENSE / NOTICE / file headers, including false
+          positives and blind spots.</p>
+        <p class="zh">用 ScanCode Toolkit 32.5.0 扫完 141 个受控文件，核对 Apache-2.0 与
+          LICENSE / NOTICE / 文件头的一致性，并记录误报与检测盲区。</p>
+        <div class="meta">Open-source compliance · ScanCode Toolkit · SPDX License List 3.27</div>
       </div>
     </section>
 
     <section>
       <div class="section-head">
-        <h2>认证</h2>
+        <h2>Certifications</h2>
+        <span class="sub">认证</span>
       </div>
       <div class="small-list">
-        <div><strong>HarmonyOS 开发者认证</strong> · 华为 · 鸿蒙应用开发</div>
-        <div><strong>HCIA-AI</strong> · 华为认证人工智能工程师</div>
+        <div><strong>HarmonyOS Developer Certification</strong> · Huawei
+          <div class="zh">HarmonyOS 开发者认证 · 华为 · 鸿蒙应用开发</div>
+        </div>
+        <div><strong>HCIA-AI</strong> · Huawei Certified ICT Associate – AI
+          <div class="zh">HCIA-AI · 华为认证人工智能工程师 · AI 方向</div>
+        </div>
       </div>
     </section>
 
     <footer>
-      © 2026 陈思宇 · 页面由 GitHub Pages 托管 ·
-      <a href="https://github.com/daneeller/daneeller">查看源码</a>
+      © 2026 Chen Siyu · hosted on GitHub Pages ·
+      <a href="https://github.com/daneeller/daneeller">Source</a>
     </footer>
 
   </div>
