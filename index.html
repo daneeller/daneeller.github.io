@@ -117,6 +117,7 @@
     }
     .tag.merged { background: var(--green-soft); color: var(--green); }
     .tag.fixed { background: var(--accent-soft); color: var(--accent); }
+    .tag.open { background: #fff8c5; color: #7a5b00; }
 
     .proj {
       background: var(--card);
@@ -216,7 +217,7 @@
         <div class="record-item">
           <h3><a href="https://github.com/flet-dev/flet/pull/7101">PR #7101 · async documentation gaps</a><span class="tag merged">MERGED</span></h3>
           <p>Two gaps in the official async docs; also led to a framework fix in
-            <a href="https://github.com/flet-dev/flet/pull/7106">#7106</a>.</p>
+            <a href="https://github.com/flet-dev/flet/pull/7106">#7106</a>. Shipped in Flet 1.1.3.</p>
         </div>
         <div class="record-item">
           <h3><a href="https://github.com/flet-dev/flet/issues/7109">Issue #7109 → PR #7110 · exception logged under the wrong logger</a><span class="tag merged">MERGED</span></h3>
@@ -225,14 +226,15 @@
             <code>flet</code>-only filter missed them entirely.</p>
         </div>
         <div class="record-item">
-          <h3><a href="https://github.com/flet-dev/flet/issues/7107">Issue #7107 · undocumented thread-safety contract</a></h3>
-          <p><code>Page.update()</code> thread-safety was undocumented;
-            <code>run_thread()</code> does not return to the UI thread.</p>
+          <h3><a href="https://github.com/flet-dev/flet/issues/7107">Issue #7107 → PR #7127 · undocumented thread-safety contract</a><span class="tag open">OPEN</span></h3>
+          <p><code>Page.update()</code> thread-safety was undocumented; docs clarification
+            submitted after the upstream fix landed.</p>
         </div>
         <div class="record-item">
-          <h3><a href="https://github.com/flet-dev/flet/issues/7108">Issue #7108 → PR #7113 · unsafe cross-thread scheduling</a><span class="tag fixed">VERIFIED</span></h3>
-          <p>The 1.x scheduler calls <code>asyncio.Event.set()</code> across threads
-            unsafely. Independently reproduced and cross-checked against the fix.</p>
+          <h3><a href="https://github.com/flet-dev/flet/issues/7108">Issue #7108 → PR #7113 · unsafe cross-thread scheduling</a><span class="tag merged">MERGED</span></h3>
+          <p>The 1.x scheduler called <code>asyncio.Event.set()</code> across threads
+            unsafely. Independently reproduced; one follow-up commit in the merged PR
+            is co-authored by me. Shipped in Flet 1.1.3.</p>
         </div>
         <div class="record-item">
           <h3><a href="https://github.com/flet-dev/flet/issues/7120">Issue #7120 · uncancellable run_thread worker</a></h3>
