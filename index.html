@@ -117,6 +117,7 @@
     }
     .tag.merged { background: var(--green-soft); color: var(--green); }
     .tag.fixed { background: var(--accent-soft); color: var(--accent); }
+    .tag.review { background: var(--accent-soft); color: var(--accent); }
     .tag.open { background: #fff8c5; color: #7a5b00; }
 
     .proj {
@@ -211,9 +212,29 @@
     <section>
       <div class="section-head">
         <h2>Public Record</h2>
-        <span class="sub">All entries link to the original thread</span>
+        <span class="sub">Updated 26 Nov 2026 · all entries link to the original thread</span>
       </div>
       <div class="record">
+        <div class="record-item">
+          <h3><a href="https://github.com/python/cpython/pull/162594">CPython PR #162594 · bounded retry timeout for sqlite3 backup()</a><span class="tag review">IN REVIEW</span></h3>
+          <p>From <a href="https://github.com/python/cpython/issues/162414">issue #162414</a>:
+            added an optional <code>timeout=-1.0</code> to <code>Connection.backup()</code>
+            so a persistently locked database no longer retries forever. The retry window
+            starts at the first <code>SQLITE_BUSY</code> / <code>SQLITE_LOCKED</code>
+            (before the <code>progress</code> callback), closes on <code>SQLITE_OK</code>,
+            and preserves the underlying SQLite error code on exhaustion; the default
+            behaviour is unchanged. Full <code>test_sqlite3</code> suite (534 run / 7
+            skipped / 0 failed) on Windows Release, Debug and free-threaded builds;
+            upstream CI 59/59 green, including four sanitizer configurations.</p>
+        </div>
+        <div class="record-item">
+          <h3><a href="https://github.com/python/cpython/issues/161868">CPython issue #161868 · GIL handoff starvation on Windows</a><span class="tag fixed">VERIFIED FIX</span></h3>
+          <p>Reproduced the main-thread <code>sleep(0.001)</code> stall (up to 785 ms on
+            stock 3.14.5) and later verified
+            <a href="https://github.com/python/cpython/pull/161930">PR #161930</a> on
+            Windows x64: 531 / 706 / 455 ms unpatched versus 8 / 8 / 11 ms patched,
+            with the PR's regression test passing. PR remains open.</p>
+        </div>
         <div class="record-item">
           <h3><a href="https://github.com/flet-dev/flet/pull/7101">PR #7101 · async documentation gaps</a><span class="tag merged">MERGED</span></h3>
           <p>Two gaps in the official async docs; also led to a framework fix in
