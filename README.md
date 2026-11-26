@@ -4,7 +4,7 @@
 
 - 站点地址：<https://daneeller.github.io>
 - 学校专业：上海杉达学院 · 计算机科学与技术卓越班
-- 方向：HarmonyOS 应用开发 / 开源合规与许可证分析
+- 方向：CPython 开源贡献 / HarmonyOS 应用开发 / 开源合规与许可证分析
 
 ## 说明
 
